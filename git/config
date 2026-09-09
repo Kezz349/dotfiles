@@ -1,0 +1,8 @@
+[core]
+    editor = code
+[init]
+    defaultBranch = main
+[pull]
+    ff = only
+[fetch]
+    prune = true

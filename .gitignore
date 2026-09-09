@@ -1,0 +1,5 @@
+# .gitignore
+ssh/
+secrets/
+*.pem
+*.key
