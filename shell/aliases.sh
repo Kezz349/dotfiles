@@ -9,11 +9,11 @@ alias gl='git log --oneline --decorate -10'
 export PATH="$HOME/.local/bin:$PATH"
 
 mkcd() {
-    if [ "$#" -ne 1 ]; then
-        printf 'Usage: mkcd NOM_DOSSIER\n' >&2
-        return 2
-    fi
-    mkdir -p -- "$1" && cd -- "$1"
+  if [ "$#" -ne 1 ]; then
+    printf 'Usage: mkcd NOM_DOSSIER\n' >&2
+    return 2
+  fi
+  mkdir -p -- "$1" && cd -- "$1"
 }
 
 gitpush() {
