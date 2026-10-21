@@ -3,7 +3,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias la='ls -a'
 alias ll='ls -alF'
-alias gs='git status --short'
+alias gs='git status'
 alias gl='git log --oneline --decorate -10'
 
 export PATH="$HOME/.local/bin:$PATH"
