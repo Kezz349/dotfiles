@@ -6,6 +6,8 @@ alias ll='ls -alF'
 alias gs='git status --short'
 alias gl='git log --oneline --decorate -10'
 
+export PATH="$HOME/.local/bin:$PATH"
+
 mkcd() {
     if [ "$#" -ne 1 ]; then
         printf 'Usage: mkcd NOM_DOSSIER\n' >&2
