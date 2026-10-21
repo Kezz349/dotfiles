@@ -66,5 +66,17 @@ newc() {
 
   local file="${1:-main.c}"
   [[ "$file" == *.c ]] || file="${file}.c"
-  touch "$file" && code "$file"
+
+  if [[ ! -e "$file" ]]; then
+    cat > "$file" <<'EOF'
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    
+}
+EOF
+  fi
+
+  code "$file"
 }
