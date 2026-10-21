@@ -67,7 +67,7 @@ newc() {
   local file="${1:-main.c}"
   [[ "$file" == *.c ]] || file="${file}.c"
 
-  if [[ ! -e "$file" ]]; then
+  if [[ ! -s "$file" ]]; then
     cat > "$file" <<'EOF'
 #include <stdio.h>
 #include <stdlib.h>
