@@ -32,3 +32,28 @@ gitpush() {
   git commit -m "$(date '+%Y-%m-%d %H:%M:%S')" &&
   git push
 }
+
+gitpull() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    echo "Not inside a Git repository." >&2
+    return 1
+  }
+
+  git fetch || return 1
+
+  local upstream behind
+  upstream=$(git rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>/dev/null) || {
+    echo "This branch has no upstream branch configured." >&2
+    return 1
+  }
+
+  behind=$(git rev-list --count "HEAD..$upstream") || return 1
+
+  if [[ "$behind" -eq 0 ]]; then
+    echo "No new commits found. Already up to date."
+    return 0
+  fi
+
+  echo "Found $behind new commit(s). Pulling..."
+  git pull --ff-only
+}
