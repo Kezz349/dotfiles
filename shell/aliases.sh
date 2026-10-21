@@ -57,3 +57,14 @@ gitpull() {
   echo "Found $behind new commit(s). Pulling..."
   git pull --ff-only
 }
+
+newc() {
+  if (( $# > 1 )); then
+    echo "Usage: newc [filename]" >&2
+    return 2
+  fi
+
+  local file="${1:-main.c}"
+  [[ "$file" == *.c ]] || file="${file}.c"
+  touch "$file" && code "$file"
+}
