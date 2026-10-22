@@ -85,3 +85,5 @@ EOF
 
   code "$file"
 }
+
+eval "$(starship init bash)"
